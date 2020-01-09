@@ -72,3 +72,5 @@ $ find  -name '*.aar'
 ```
 
 Note that dependencies currently need to be already built or ordered explicitly.
+
+To build all ports using Docker, use `scripts/build.sh`.
