@@ -55,6 +55,8 @@ tasks.withType<KotlinCompile> {
 //     ./gradlew -PndkPath=/path/to/ndk run
 val ndkPath: String by project
 tasks.named<JavaExec>("run") {
-    val allPorts = File("ports").listFiles()!!.map { it.name }
+    // Order matters since we don't do any dependency sorting, so we can't just
+    // use the directory list.
+    val allPorts = listOf("openssl", "curl", "jsoncpp")
     args = listOf("--ndk", ndkPath, "-o", "out") + allPorts
 }
