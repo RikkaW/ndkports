@@ -24,6 +24,11 @@ abstract class AutoconfPort : Port() {
         toolchain: Toolchain
     ): List<String> = emptyList()
 
+    open fun configureEnv(
+        workingDirectory: File,
+        toolchain: Toolchain
+    ): Map<String, String> = emptyMap()
+
     override fun configure(
         toolchain: Toolchain,
         sourceDirectory: File,
@@ -39,14 +44,14 @@ abstract class AutoconfPort : Port() {
                 "--prefix=${installDirectory.absolutePath}"
             ) + configureArgs(workingDirectory, toolchain),
             buildDirectory,
-            additionalEnvironment = mapOf(
+            additionalEnvironment = mutableMapOf(
                 "AR" to toolchain.ar.absolutePath,
                 "CC" to toolchain.clang.absolutePath,
                 "CXX" to toolchain.clangxx.absolutePath,
                 "RANLIB" to toolchain.ranlib.absolutePath,
                 "STRIP" to toolchain.strip.absolutePath,
                 "PATH" to "${toolchain.binDir}:${System.getenv("PATH")}"
-            )
+            ).apply { putAll(configureEnv(workingDirectory, toolchain)) }
         )
     }
 
