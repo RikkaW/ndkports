@@ -54,4 +54,17 @@ object : AutoconfPort() {
             "--with-ssl=$sslPrefix"
         )
     }
+
+    override fun configureEnv(
+        workingDirectory: File,
+        toolchain: Toolchain
+    ): Map<String, String> = mapOf(
+        // aarch64 still defaults to bfd which transitively checks libraries.
+        // When curl is linking one of its own libraries which depends on
+        // openssl, it doesn't pass -rpath-link to be able to find the SSL
+        // libraries and fails to build because of it.
+        //
+        // TODO: Switch to lld once we're using r21.
+        "LDFLAGS" to "-fuse-ld=gold"
+    )
 }
