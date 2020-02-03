@@ -16,10 +16,7 @@
 
 package com.android.ndkports
 
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import java.io.File
-import java.io.FileOutputStream
 
 @Suppress("unused")
 fun executeProcessStep(
@@ -66,8 +63,6 @@ abstract class Port {
     open val mavenVersion: String
         get() = version
 
-    abstract val url: String
-
     open val licensePath: String = "LICENSE"
 
     abstract val license: License
@@ -103,35 +98,17 @@ abstract class Port {
         return Result.Ok(Unit)
     }
 
-    open fun fetchSource(
+    open fun extractSource(
+        sourceTarball: File,
         sourceDirectory: File,
         workingDirectory: File
     ): Result<Unit, String> {
-        val file = workingDirectory.resolve(File(url).name)
-
-        val client = OkHttpClient()
-        val request = Request.Builder().url(url).build()
-        client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) {
-                return Result.Error("Failed to download $url")
-            }
-
-            val body = response.body ?: throw RuntimeException(
-                "Expected non-null response body for $url"
-            )
-            FileOutputStream(file).use { output ->
-                body.byteStream().use { input ->
-                    input.copyTo(output)
-                }
-            }
-        }
-
         sourceDirectory.mkdirs()
         return executeProcessStep(
             listOf(
                 "tar",
                 "xf",
-                file.absolutePath,
+                sourceTarball.absolutePath,
                 "--strip-components=1"
             ), sourceDirectory
         )

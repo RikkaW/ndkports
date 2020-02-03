@@ -21,7 +21,6 @@ import java.io.File
 object : AutoconfPort() {
     override val name = "curl"
     override val version = "7.66.0"
-    override val url = "https://curl.haxx.se/download/curl-$version.tar.gz"
     override val licensePath = "COPYING"
 
     override val license = License(

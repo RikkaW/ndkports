@@ -22,7 +22,6 @@ object : Port() {
     override val name = "openssl"
     override val version = "1.1.1d"
     override val prefabVersion = CMakeCompatibleVersion(1, 1, 1, 4)
-    override val url = "https://www.openssl.org/source/openssl-$version.tar.gz"
 
     override val license = License(
         "Dual OpenSSL and SSLeay License",

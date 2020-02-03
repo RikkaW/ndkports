@@ -22,7 +22,6 @@ dependencies {
     implementation("com.google.prefab:api:1.0.0-alpha2")
 
     implementation("com.github.ajalt:clikt:2.2.0")
-    implementation("com.squareup.okhttp3:okhttp:4.2.2")
     implementation("de.swirtz:ktsRunner:0.0.7")
     implementation("org.apache.maven:maven-core:3.6.2")
     implementation("org.redundent:kotlin-xml-builder:1.5.3")
