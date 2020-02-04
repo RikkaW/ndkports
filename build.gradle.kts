@@ -45,6 +45,8 @@ tasks.withType<KotlinCompile> {
     )
 }
 
+val portsBuildDir = buildDir.resolve("ports")
+
 // Can be specified in ~/.gradle/gradle.properties:
 //
 //     ndkPath=/path/to/ndk
@@ -57,5 +59,25 @@ tasks.named<JavaExec>("run") {
     // Order matters since we don't do any dependency sorting, so we can't just
     // use the directory list.
     val allPorts = listOf("openssl", "curl", "jsoncpp")
-    args = listOf("--ndk", ndkPath, "-o", "out") + allPorts
+    args = listOf("--ndk", ndkPath, "-o", portsBuildDir.toString()) + allPorts
+}
+
+distributions {
+    create("packages") {
+        contents {
+            includeEmptyDirs = false
+            from(portsBuildDir) {
+                include("**/*.aar")
+                include("**/*.pom")
+            }
+        }
+    }
+}
+
+tasks.named("packagesDistTar") {
+    dependsOn(":run")
+}
+
+tasks.named("packagesDistZip") {
+    dependsOn(":run")
 }
