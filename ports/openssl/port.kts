@@ -21,6 +21,7 @@ import java.io.File
 object : Port() {
     override val name = "openssl"
     override val version = "1.1.1d"
+    override val mavenVersion = "$version-alpha-1"
     override val prefabVersion = CMakeCompatibleVersion(1, 1, 1, 4)
 
     override val license = License(

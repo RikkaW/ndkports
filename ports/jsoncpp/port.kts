@@ -21,6 +21,7 @@ import java.io.File
 object : MesonPort() {
     override val name = "jsoncpp"
     override val version = "1.9.1"
+    override val mavenVersion = "$version-alpha-1"
 
     override val license = License(
         "The JsonCpp License",
