@@ -31,4 +31,18 @@ object : MesonPort() {
     override val modules = listOf(
         Module("jsoncpp")
     )
+
+    override fun extractSource(
+        sourceTarball: File,
+        sourceDirectory: File,
+        workingDirectory: File
+    ): Result<Unit, String> =
+        super.extractSource(sourceTarball, sourceDirectory, workingDirectory)
+            .onSuccess {
+                // jsoncpp has a "version" file on the include path that
+                // conflicts with
+                // https://en.cppreference.com/w/cpp/header/version. Remove it
+                // so we can build.
+                sourceDirectory.resolve("version").delete()
+            }
 }
