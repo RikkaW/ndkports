@@ -20,7 +20,7 @@ import java.io.File
 
 object : AutoconfPort() {
     override val name = "curl"
-    override val version = "7.66.0"
+    override val version = "7.68.0"
     override val mavenVersion = "$version-alpha-1"
     override val licensePath = "COPYING"
 
