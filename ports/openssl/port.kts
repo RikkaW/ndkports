@@ -20,9 +20,9 @@ import java.io.File
 
 object : Port() {
     override val name = "openssl"
-    override val version = "1.1.1f"
+    override val version = "1.1.1g"
     override val mavenVersion = "$version-alpha-1"
-    override val prefabVersion = CMakeCompatibleVersion(1, 1, 1, 6)
+    override val prefabVersion = CMakeCompatibleVersion(1, 1, 1, 7)
 
     override val license = License(
         "Dual OpenSSL and SSLeay License",
