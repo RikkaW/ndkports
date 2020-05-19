@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.50"
+    kotlin("jvm") version "1.3.72"
     application
 }
 
@@ -16,10 +16,10 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.3.50"))
-    implementation(kotlin("reflect", "1.3.50"))
+    implementation(kotlin("stdlib", "1.3.72"))
+    implementation(kotlin("reflect", "1.3.72"))
 
-    implementation("com.google.prefab:api:1.0.0-alpha2")
+    implementation("com.google.prefab:api:1.0.0")
 
     implementation("com.github.ajalt:clikt:2.2.0")
     implementation("de.swirtz:ktsRunner:0.0.7")
