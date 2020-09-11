@@ -132,7 +132,7 @@ class PrefabPackageBuilder(
     }
 
     private fun installLibForAbi(module: Module, abi: Abi, libsDir: File) {
-        val libName = "lib${module.name}.so"
+        val libName = "lib${module.name}.a"
         val installDirectory = libsDir.resolve("android.${abi.abiName}").apply {
             mkdirs()
         }
@@ -152,7 +152,7 @@ class PrefabPackageBuilder(
                     abi = abi.abiName,
                     api = api,
                     ndk = ndk.version.major,
-                    stl = "c++_shared"
+                    stl = "c++_static"
                 )
             )
         )
