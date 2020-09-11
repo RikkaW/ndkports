@@ -44,8 +44,7 @@ class PrefabPackageBuilder(
     private val modulesDirectory = prefabDirectory.resolve("modules")
 
     private val packageComponents = listOf(
-        "com",
-        "android",
+        "rikka",
         "ndk",
         "thirdparty",
         port.name
@@ -59,7 +58,7 @@ class PrefabPackageBuilder(
     private val mavenProject = MavenProject().also {
         it.name = port.name
         it.description = "The ndkports AAR for ${port.name}."
-        it.url = "https://android.googlesource.com/platform/tools/ndkports"
+        it.url = "https://github.com/RikkaW/ndkports"
         it.groupId = groupId
         it.artifactId = artifactId
         it.version = port.mavenVersion
@@ -77,8 +76,8 @@ class PrefabPackageBuilder(
             }
         )
         it.scm = Scm().also { scm ->
-            scm.url = "https://android.googlesource.com/platform/tools/ndkports"
-            scm.connection = "scm:git:https://android.googlesource.com/platform/tools/ndkports"
+            scm.url = "https://github.com/RikkaW/ndkports"
+            scm.connection = "scm:git:https://github.com/RikkaW/ndkports"
         }
         it.dependencies = port.dependencies.map { depName ->
             val depPort = portsByName[depName] ?: throw RuntimeException(
