@@ -72,7 +72,7 @@ class PrefabPackageBuilder(
         )
         it.developers = listOf(
             Developer().also { developer ->
-                developer.name = "The Android Open Source Project"
+                developer.name = "RikkaW"
             }
         )
         it.scm = Scm().also { scm ->

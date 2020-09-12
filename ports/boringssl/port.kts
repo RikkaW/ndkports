@@ -21,7 +21,7 @@ import java.io.File
 object : Port() {
     override val name = "boringssl"
     override val version = "20200911"
-    override val mavenVersion = "${version}-static"
+    override val mavenVersion = "${version}"
     override val licensePath = "src/LICENSE"
 
     override val license = License(

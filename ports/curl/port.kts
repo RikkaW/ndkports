@@ -21,7 +21,7 @@ import java.io.File
 object : AutoconfPort() {
     override val name = "curl"
     override val version = "7.72.0"
-    override val mavenVersion = "${version}-boringssl-static"
+    override val mavenVersion = "${version}-boringssl"
     override val licensePath = "COPYING"
 
     override val license = License(
