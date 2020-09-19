@@ -60,6 +60,8 @@ object : Port() {
                 "APP_BUILD_SCRIPT=../../src/Android.mk",
                 "APP_ABI=${toolchain.abi.abiName}",
                 "APP_PLATFORM=android-${toolchain.api}",
+                "APP_CFLAGS=-Wno-builtin-macro-redefined -D__FILE__=__FILE_NAME__",
+                "APP_CXXFLAGS=-Wno-builtin-macro-redefined -D__FILE__=__FILE_NAME__",
                 "NDK_ALL_ABIS=${toolchain.abi.abiName}",
                 "NDK_OUT=.",
                 "NDK_LIBS_OUT=.",
