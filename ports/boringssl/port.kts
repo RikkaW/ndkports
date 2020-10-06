@@ -31,7 +31,7 @@ object : Port() {
 
     override val modules = listOf(
         Module("crypto"),
-        Module("ssl")
+        Module("ssl", dependencies = listOf(":crypto"))
     )
 
     override fun configure(

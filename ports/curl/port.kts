@@ -33,7 +33,7 @@ object : AutoconfPort() {
     override val modules = listOf(
         Module(
             "curl",
-            dependencies = listOf("//boringssl:crypto", "//boringssl:ssl")
+            dependencies = listOf("//boringssl:crypto", "//boringssl:ssl", "-lz")
         )
     )
 
