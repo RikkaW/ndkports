@@ -18,13 +18,15 @@ repositories {
 // BoringSSL (https://android.googlesource.com/platform/external/boringssl/)
 implementation 'rikka.ndk.thirdparty:boringssl:20200911'
 
-// cURL with BoringSSL
-implementation 'rikka.ndk.thirdparty:curl:7.72.0-boringssl'
+// cURL
+implementation 'rikka.ndk.thirdparty:curl:7.72.0-boringssl' // with BoringSSL
 
 // xHook (https://github.com/iqiyi/xHook)
 implementation 'rikka.ndk.thirdparty:xhook:1.2.0'
-```
 
 // TinyXML-2 (https://github.com/leethomason/tinyxml2)
 implementation 'rikka.ndk.thirdparty:tinyxml2:8.0.0'
+
+// sepol(Magisk version) (https://github.com/topjohnwu/selinux)
+implementation 'rikka.ndk.thirdparty:sepol:3.1'
 ```
