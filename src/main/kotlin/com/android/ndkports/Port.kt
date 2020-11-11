@@ -68,7 +68,8 @@ fun installDirectoryForPort(
 data class Module(
     val name: String,
     val includesPerAbi: Boolean = false,
-    val dependencies: List<String> = emptyList()
+    val dependencies: List<String> = emptyList(),
+    val headerOnly: Boolean = false
 )
 
 /**

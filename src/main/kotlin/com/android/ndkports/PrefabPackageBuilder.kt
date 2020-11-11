@@ -239,8 +239,10 @@ class PrefabPackageBuilder(
             }
 
             val libsDir = moduleDirectory.resolve("libs").apply { mkdirs() }
-            for (abi in Abi.values()) {
-                installLibForAbi(module, abi, libsDir)
+            if (!module.headerOnly) {
+                for (abi in Abi.values()) {
+                    installLibForAbi(module, abi, libsDir)
+                }
             }
         }
 
