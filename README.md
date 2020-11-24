@@ -29,4 +29,10 @@ implementation 'rikka.ndk.thirdparty:tinyxml2:8.0.0'
 
 // sepol(Magisk version) (https://github.com/topjohnwu/selinux)
 implementation 'rikka.ndk.thirdparty:sepol:3.1'
+
+// libnativehelper-header-only (https://android.googlesource.com/platform/libnativehelper)
+implementation 'rikka.ndk.thirdparty:nativehelper:20201111'
+
+// flatbuffers
+implementation 'rikka.ndk.thirdparty:flatbuffers:1.12.0'
 ```
