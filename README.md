@@ -1,3 +1,9 @@
+# This project is deprecated
+
+1. The upstream stop updating for long
+2. ndkports have many hard-coded configs (e.g., ndkports adds the requirement of c++ stl even for a pure C library)
+3. My ports are moved to AGP's prefabPublishing
+
 # ndkports
 
 This is a fork of [platform/tools/ndkports](https://android.googlesource.com/platform/tools/ndkports).
